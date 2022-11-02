@@ -17,6 +17,11 @@ public class UIManagerCOPY : MonoBehaviour
     void Update()
     {
         TotalFlippedText.text = "" + ToolBoxRef.TotalFlipped;
+
+        Player1White.text = "" + ToolBoxRef.player1White;
+        Player1Black.text = "" + ToolBoxRef.player1Black;
+        Player2White.text = "" + ToolBoxRef.player2White;
+        Player2Black.text = "" + ToolBoxRef.player2Black;
     }
 
 
