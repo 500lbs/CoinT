@@ -11,43 +11,13 @@ public class UIManagerCOPY : MonoBehaviour
     public TMPro.TMP_Text Player2Wins;
     public TMPro.TMP_Text Player2White;
     public TMPro.TMP_Text Player2Black;
-    public TMPro.TMP_Text TotalFlippedTex;
+    public TMPro.TMP_Text TotalFlippedText;
 
     // Update is called once per frame
     void Update()
     {
-        Player1Guess();
-        Player2Guess();
-        TotalFlipped();
+        TotalFlippedText.text = "" + ToolBoxRef.TotalFlipped;
     }
 
-    void Player1Guess()
-    {
-        /* UPDATE UGUI WITH:
-         * public int player1Wins;
-         * public int player1Black;
-         * public int player1White;
-        */
-    }
-
-    void Player2Guess()
-    {
-        /* UPDATE UGUI WITH:
-         * public int player2Wins;
-         * public int player2Black;
-         * public int player2White;
-        */
-    }
-
-    void CheckStatus()
-    {
-        /* UPDATE UGUI WITH:
-         * Who's turn it is
-        */
-    }
-    void TotalFlipped()
-    {
-        // How many times has the coin been flipped?
-    }
 
 }
