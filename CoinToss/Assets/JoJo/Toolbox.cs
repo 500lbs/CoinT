@@ -28,6 +28,19 @@ public class Toolbox : MonoBehaviour
     {
 
     }
+    public void Restart()
+    {
+        playerTurn = -1;
+        coinChoise = -1;
+        canFlip = true;
+        TotalFlipped = 0;
+        player1Wins = 0;
+        player1White = 0;
+        player1Black = 0;
+        player2Wins = 0;
+        player2White = 0;
+        player2Black = 0;
+    }
 
     // Update is called once per frame
     void Update()

@@ -57,5 +57,9 @@ public class UIManagerCOPY : MonoBehaviour
         }
     }
 
+    public void RestartGame()
+    {
+        ToolBoxRef.Restart();
+    }
 
 }
