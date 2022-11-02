@@ -38,30 +38,31 @@ public class Toolbox : MonoBehaviour
             FlipCoin();
         }
 
-        if (playerTurn == -1 && Input.GetKeyDown(KeyCode.E) && canFlip == true)
-        {
-            canFlip = false;
-            Invoke("BlackSide", 0.1f);
-            animCoin.SetBool("ChangeToBlack", true);
-        }
-        else if (playerTurn == 1 && Input.GetKeyDown(KeyCode.O) && canFlip == true)
+        if (playerTurn == -1 && Input.GetKeyUp(KeyCode.E) && canFlip == true)
         {
             canFlip = false;
             Invoke("BlackSide", 0.1f);
             animCoin.SetBool("ChangeToBlack", true);
         }
 
-        if (playerTurn == -1 && Input.GetKeyDown(KeyCode.Q) && canFlip == true)
+        else if (playerTurn == -1 && Input.GetKeyUp(KeyCode.Q) && canFlip == true)
         {
             canFlip = false;
             Invoke("WhiteSide", 0.1f);
             animCoin.SetBool("ChangeToWhite", true);
         }
-        else if (playerTurn == 1 && Input.GetKeyDown(KeyCode.U) && canFlip == true)
+
+        if (playerTurn == 1 && Input.GetKeyUp(KeyCode.U) && canFlip == true)
         {
             canFlip = false;
             Invoke("WhiteSide", 0.1f);
             animCoin.SetBool("ChangeToWhite", true);
+        }
+        else if (playerTurn == 1 && Input.GetKeyUp(KeyCode.O) && canFlip == true)
+        {
+            canFlip = false;
+            Invoke("BlackSide", 0.1f);
+            animCoin.SetBool("ChangeToBlack", true);
         }
         //ChooseTurn();
     }
