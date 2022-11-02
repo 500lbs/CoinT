@@ -21,6 +21,7 @@ public class Toolbox : MonoBehaviour
     public int coinChoise = -1;
     public int coinResult;
     bool canFlip = true;
+    public int TotalFlipped = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -82,10 +83,10 @@ public class Toolbox : MonoBehaviour
     void CollectPoint1()
     {
         player1Wins++;
-        if(coinResult == -1)
+        if (coinResult == -1)
         {
             player1Black++;
-        } 
+        }
         else if (coinResult == 1)
         {
             player1White++;
@@ -129,7 +130,7 @@ public class Toolbox : MonoBehaviour
                 CollectPoint2();
             }
         }
-
+        TotalFlipped++;
         Invoke("EndTurn", 1.1f);
     }
 

@@ -778,9 +778,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1831578752604917186, guid: ac800c37223594a37a8b1a66784f41b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2460429489109902864, guid: ac800c37223594a37a8b1a66784f41b3, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2460429489109902864, guid: ac800c37223594a37a8b1a66784f41b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3940127852039317226, guid: ac800c37223594a37a8b1a66784f41b3, type: 3}
       propertyPath: m_Pivot.x
@@ -866,7 +874,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6804248562995466595, guid: ac800c37223594a37a8b1a66784f41b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398246942732398010, guid: ac800c37223594a37a8b1a66784f41b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8832787741071707800, guid: ac800c37223594a37a8b1a66784f41b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ac800c37223594a37a8b1a66784f41b3, type: 3}
 --- !u!1 &748338346
 GameObject:
@@ -930,6 +947,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &987961928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2460429489109902864, guid: ac800c37223594a37a8b1a66784f41b3, type: 3}
+  m_PrefabInstance: {fileID: 629494427}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &987961934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987961928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb6fd7d2d0e8f2e47b80d3e4e21eaf7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToolBoxRef: {fileID: 1328261343}
+  Player1Wins: {fileID: 0}
+  Player1White: {fileID: 0}
+  Player1Black: {fileID: 0}
+  Player2Wins: {fileID: 0}
+  Player2White: {fileID: 0}
+  Player2Black: {fileID: 0}
+  TotalFlippedTex: {fileID: 0}
 --- !u!1 &1014037594
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,6 +1157,7 @@ MonoBehaviour:
   playerTurn: -1
   coinChoise: 0
   coinResult: 0
+  TotalFlipped: 0
 --- !u!4 &1328261344
 Transform:
   m_ObjectHideFlags: 0
