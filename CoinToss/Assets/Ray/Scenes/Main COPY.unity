@@ -220,6 +220,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &102692263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8001137334613128731, guid: ac800c37223594a37a8b1a66784f41b3, type: 3}
+  m_PrefabInstance: {fileID: 629494427}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &221024153
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +457,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235758095}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &242024160 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 221804796033264545, guid: ac800c37223594a37a8b1a66784f41b3, type: 3}
+  m_PrefabInstance: {fileID: 629494427}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &397386081
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +896,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5574922941079114987, guid: ac800c37223594a37a8b1a66784f41b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6804248562995466595, guid: ac800c37223594a37a8b1a66784f41b3, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -983,6 +1009,8 @@ MonoBehaviour:
   Player2White: {fileID: 631945624}
   Player2Black: {fileID: 1381666404}
   TotalFlippedText: {fileID: 1167824736}
+  Player1TurnText: {fileID: 242024160}
+  Player2TurnText: {fileID: 102692263}
 --- !u!1 &1014037594
 GameObject:
   m_ObjectHideFlags: 0
