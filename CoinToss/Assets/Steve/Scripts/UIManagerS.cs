@@ -57,10 +57,17 @@ public class UIManagerS : MonoBehaviour
         _player1White.text = $"{ToolBoxRef.player1White}";
     }
 
-    void Player2Guess()
+    void Player1Guess()
     {
         _player1Black.text = $"{ToolBoxRef.player1Black}";
         _player1White.text = $"{ToolBoxRef.player1White}";
+    }
+
+
+    void Player2Guess()
+    {
+        _player2Black.text = $"{ToolBoxRef.player2Black}";
+        _player2White.text = $"{ToolBoxRef.player2White}";
     }
 
     void CheckStatus()
