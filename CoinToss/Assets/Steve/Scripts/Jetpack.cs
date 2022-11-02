@@ -4,57 +4,33 @@ using UnityEngine;
 
 public class Jetpack : MonoBehaviour
 {
-    #region Variables
-    [Header("Shared Movement Variables")]
-    [SerializeField] private float moveSpeed;
+    [Header("Shared Variables")]
+    [SerializeField] private float _moveSpeed;
 
-    [Header("Player 1 Movement")]
-    [SerializeField] private Rigidbody rb1;
-    [SerializeField] private float thrust;
-    [SerializeField] private float turnThrust;
-    [SerializeField] private float thrustInput;
-    [SerializeField] private Quaternion turnInput;
+    [Header("Independent Variables")]
+    [SerializeField] private Rigidbody _rb1;
+    private Vector3 _moveInput1;
+    [SerializeField] private Rigidbody _rb2;
+    private Vector3 _moveInput2;
 
-
-
-    private Vector3 moveInput1;
-
-    [Header("Player 2 Movement")]
-    [SerializeField] private Rigidbody rb2;
-    private Vector3 moveInput2;
-
-    #endregion
-    #region Main Functions
     private void Update()
     {
-        //Check to see if there is input from the keyboard
-        CheckP2Movement();
+        CheckMove();
     }
 
-    private void FixedUpdate()
+    private void CheckMove()
     {
-        CheckP1Movement();
+        // Player 1
+        _moveInput1.x = Input.GetAxisRaw("Horizontal1");
+        _moveInput1.z = Input.GetAxisRaw("Vertical1");
+        _moveInput1.Normalize();
+        _rb1.velocity = _moveInput2 * _moveSpeed;
+
+        // Player 2
+        _moveInput2.x = Input.GetAxisRaw("Horizontal2");
+        _moveInput2.z = Input.GetAxisRaw("Vertical2");
+        _moveInput2.Normalize();
+        _rb1.velocity = _moveInput2 * _moveSpeed;
     }
-
-    #endregion
-    #region Movement Functions
-    private void CheckP1Movement()
-    {
-        rb1.AddRelativeForce(Vector3.forward * thrustInput);
-        thrustInput = Input.GetAxis("Vertical");
-
-//        rb1.AddTorque(turnInput);
-//        turnInput = Input.GetAxis("Horizontal");
-    }
-
-    private void CheckP2Movement()
-    {
-        moveInput2.x = Input.GetAxisRaw("Horizontal");
-        moveInput2.z = Input.GetAxisRaw("Vertical");
-        moveInput2.Normalize();
-        rb2.velocity = moveInput1 * moveSpeed;
-    }
-
-    #endregion
 
 }
