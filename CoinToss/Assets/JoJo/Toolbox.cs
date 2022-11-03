@@ -20,7 +20,7 @@ public class Toolbox : MonoBehaviour
     public int playerTurn = -1;
     public int coinChoise = -1;
     public int coinResult;
-    bool canFlip = true;
+    public bool canFlip = true;
     public int TotalFlipped = 0;
 
     // Start is called before the first frame update
