@@ -9,9 +9,11 @@ public class UIManagerS : MonoBehaviour
     #region Variables
     [Header("References")]
     public Toolbox ToolBoxRef;
+
     [Header("Status / Main Screen")]
     public GameObject Player2TurnStatus;
     public GameObject Player1TurnStatus;
+
     [Header("Stats / Pause Screen")]
     public TextMeshProUGUI Player1WinsText;
     public TextMeshProUGUI Player1BlackText;
@@ -20,16 +22,19 @@ public class UIManagerS : MonoBehaviour
     public TextMeshProUGUI Player2BlackText;
     public TextMeshProUGUI Player2WhiteText;
     public TextMeshProUGUI TotalTimesFlippedText;
+
     [Header("Game Flow")]
     public bool StatsSwitch = false;
     public GameObject StatsObject;
+    public bool GamePlaySwitch = true;
+    public GameObject GamePlayObject;
 
     #endregion
     #region Basic Functions
     void Update()
     {
         UpdateStats();
-        OverlayStats();
+        ToggleOverlayStats();
     }
 
     #endregion
@@ -61,21 +66,42 @@ public class UIManagerS : MonoBehaviour
     #endregion
     #region Game State Functions
 
-    public void OverlayStats()
+    public void ToggleOverlayStats()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Pressed ESC");
             StatsSwitch = !StatsSwitch;
+            GamePlaySwitch = !GamePlaySwitch;
         }
         if (StatsSwitch)
         {
             StatsObject.SetActive(true);
+            GamePlayObject.SetActive(false);
         }
         else
         {
             StatsObject.SetActive(false);
+            GamePlayObject.SetActive(true);
         }
+    }
+
+    public void StatsButton()
+    {
+        StatsSwitch = !StatsSwitch;
+    }
+
+    public void ClearStats()
+    {
+        ToolBoxRef.playerTurn = -1;
+        ToolBoxRef.coinChoise = -1;
+        ToolBoxRef.canFlip = true;
+        ToolBoxRef.TotalFlipped = 0;
+        ToolBoxRef.player1Wins = 0;
+        ToolBoxRef.player1White = 0;
+        ToolBoxRef.player1Black = 0;
+        ToolBoxRef.player2Wins = 0;
+        ToolBoxRef.player2White = 0;
+        ToolBoxRef.player2Black = 0;
     }
     #endregion
 
