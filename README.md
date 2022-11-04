@@ -1,4 +1,4 @@
-# CoinT
+# CoinToss
 Scripting 3 - Turn Based Game - Fourat Jellouli
 
 Joaquin Vasquez de Velasco Aguirre 2130107    
