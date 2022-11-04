@@ -5,22 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class SceneMngr : MonoBehaviour
 {
-    public void LoadMain()
-    {
-        SceneManager.LoadScene("Main_S", LoadSceneMode.Single);
-    }
-
+    #region SceneTransitions
     public void LoadStart()
     {
-        SceneManager.LoadScene("Start_S", LoadSceneMode.Single);
+        SceneManager.LoadScene("Start_Nov4", LoadSceneMode.Single);
+    }
+    public void LoadMain()
+    {
+        SceneManager.LoadScene("Main_Nov4", LoadSceneMode.Single);
     }
     public void LoadEnd()
     {
-        SceneManager.LoadScene("End_S", LoadSceneMode.Single);
+        SceneManager.LoadScene("End_Nov4", LoadSceneMode.Single);
     }
+    #endregion
 
+    #region Etc.
     public void ExitGame()
     {
         Application.Quit();
     }
+    #endregion
 }

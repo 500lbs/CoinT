@@ -353,7 +353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1328261343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,17 +367,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animCoin: {fileID: 0}
-  player1Wins: 0
-  player1Black: 0
-  player1White: 0
-  player2Wins: 0
-  player2Black: 0
-  player2White: 0
-  playerTurn: -1
-  coinChoise: 0
-  coinResult: 0
-  canFlip: 1
-  TotalFlipped: 0
 --- !u!4 &1328261344
 Transform:
   m_ObjectHideFlags: 0
@@ -1106,6 +1095,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8cfac365ed74519b6a7791b40f4883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Start: Start_Nov4
+  Main: Main_Nov4
+  End: End_Nov4
 --- !u!224 &6792383040291773919
 RectTransform:
   m_ObjectHideFlags: 0

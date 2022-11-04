@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManagerS : MonoBehaviour
 {
@@ -15,8 +16,7 @@ public class UIManagerS : MonoBehaviour
     public GameObject Player2TurnStatus;
     public GameObject Player1TurnStatus;
 
-    [Header("Stats / Pause Screen")] 
-
+    [Header("Stats / Pause Screen")]
     public TextMeshProUGUI Player1WinsText;
     public TextMeshProUGUI Player1BlackText;
     public TextMeshProUGUI Player1WhiteText;
@@ -26,14 +26,17 @@ public class UIManagerS : MonoBehaviour
     public TextMeshProUGUI TotalTimesFlippedText;
 
     [Header("Game Flow")]
+    public bool MainSwitch;
+    public GameObject MainObject;
     public bool StatsSwitch = false;
     public GameObject StatsObject;
     public bool GamePlaySwitch = true;
     public GameObject GamePlayObject;
+    public bool GameOverSwitch;
+    public GameObject GameOverObject;
 
     #endregion
     #region Basic Functions
-
     void Update()
     {
         UpdateStats();
@@ -68,7 +71,6 @@ public class UIManagerS : MonoBehaviour
 
     #endregion
     #region Game State Functions
-
     public void ToggleOverlayStats()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -120,7 +122,5 @@ public class UIManagerS : MonoBehaviour
         SingletonStats.SingletonRef.player2White = 0;
         SingletonStats.SingletonRef.player2Black = 0;
     }
-
     #endregion
-
 }
