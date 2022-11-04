@@ -9,27 +9,13 @@ public class UIManagerS : MonoBehaviour
     #region Variables
 
     [Header("References")]
+    public static UIManagerS UIManagerRef;
 
     [Header("Status / Main Screen")]
     public GameObject Player2TurnStatus;
     public GameObject Player1TurnStatus;
 
     [Header("Stats / Pause Screen")] 
-    
-    public int player1Wins;
-    public int player1Black;
-    public int player1White;
-
-    public int player2Wins;
-    public int player2Black;
-    public int player2White;
-    //-1 means player one / black & 1 means player two / white
-    public int playerTurn = -1;
-    public int coinChoise = -1;
-    public int coinResult;
-    public int TotalFlipped = 0;
-
-    public bool canFlip = true;
 
     public TextMeshProUGUI Player1WinsText;
     public TextMeshProUGUI Player1BlackText;
@@ -47,6 +33,7 @@ public class UIManagerS : MonoBehaviour
 
     #endregion
     #region Basic Functions
+
     void Update()
     {
         UpdateStats();
@@ -58,25 +45,25 @@ public class UIManagerS : MonoBehaviour
     void UpdateStats()
     {
         //Player 1 Stats Update
-        Player1WinsText.text = $"{player1Wins}";
-        Player1BlackText.text = $"{player1Black}";
-        Player1WhiteText.text = $"{player1White}";
-        if (playerTurn == -1)
+        Player1WinsText.text = $"{SingletonStats.SingletonRef.player1Wins}";
+        Player1BlackText.text = $"{SingletonStats.SingletonRef.player1Black}";
+        Player1WhiteText.text = $"{SingletonStats.SingletonRef.player1White}";
+        if (SingletonStats.SingletonRef.playerTurn == -1)
         {
             Player1TurnStatus.SetActive(true);
             Player2TurnStatus.SetActive(false);
         }
         //Player 2 Stats Update
-        Player2WinsText.text = $"{player2Wins}";
-        Player2BlackText.text = $"{player2Black}";
-        Player2WhiteText.text = $"{player2White}";
-        if (playerTurn != -1)
+        Player2WinsText.text = $"{SingletonStats.SingletonRef.player2Wins}";
+        Player2BlackText.text = $"{SingletonStats.SingletonRef.player2Black}";
+        Player2WhiteText.text = $"{SingletonStats.SingletonRef.player2White}";
+        if (SingletonStats.SingletonRef.playerTurn != -1)
         {
             Player1TurnStatus.SetActive(false);
             Player2TurnStatus.SetActive(true);
         }
 
-        TotalTimesFlippedText.text = $"{TotalFlipped}";
+        TotalTimesFlippedText.text = $"{SingletonStats.SingletonRef.TotalFlipped}";
     }
 
     #endregion
@@ -91,29 +78,29 @@ public class UIManagerS : MonoBehaviour
         }
         if (StatsSwitch)
         {
-            canFlip = false;
+            SingletonStats.SingletonRef.canFlip = false;
             StatsObject.SetActive(true);
             GamePlayObject.SetActive(false);
         }
         else
         {
-            canFlip = true;
+            SingletonStats.SingletonRef.canFlip = true;
             StatsObject.SetActive(false);
             GamePlayObject.SetActive(true);
         }
     }
     public void Restart()
     {
-        playerTurn = -1;
-        coinChoise = -1;
-        canFlip = true;
-        TotalFlipped = 0;
-        player1Wins = 0;
-        player1White = 0;
-        player1Black = 0;
-        player2Wins = 0;
-        player2White = 0;
-        player2Black = 0;
+        SingletonStats.SingletonRef.playerTurn = -1;
+        SingletonStats.SingletonRef.coinChoise = -1;
+        SingletonStats.SingletonRef.canFlip = true;
+        SingletonStats.SingletonRef.TotalFlipped = 0;
+        SingletonStats.SingletonRef.player1Wins = 0;
+        SingletonStats.SingletonRef.player1White = 0;
+        SingletonStats.SingletonRef.player1Black = 0;
+        SingletonStats.SingletonRef.player2Wins = 0;
+        SingletonStats.SingletonRef.player2White = 0;
+        SingletonStats.SingletonRef.player2Black = 0;
     }
     public void StatsButton()
     {
@@ -122,16 +109,16 @@ public class UIManagerS : MonoBehaviour
 
     public void ClearStats()
     {
-        playerTurn = -1;
-        coinChoise = -1;
-        canFlip = true;
-        TotalFlipped = 0;
-        player1Wins = 0;
-        player1White = 0;
-        player1Black = 0;
-        player2Wins = 0;
-        player2White = 0;
-        player2Black = 0;
+        SingletonStats.SingletonRef.playerTurn = -1;
+        SingletonStats.SingletonRef.coinChoise = -1;
+        SingletonStats.SingletonRef.canFlip = true;
+        SingletonStats.SingletonRef.TotalFlipped = 0;
+        SingletonStats.SingletonRef.player1Wins = 0;
+        SingletonStats.SingletonRef.player1White = 0;
+        SingletonStats.SingletonRef.player1Black = 0;
+        SingletonStats.SingletonRef.player2Wins = 0;
+        SingletonStats.SingletonRef.player2White = 0;
+        SingletonStats.SingletonRef.player2Black = 0;
     }
 
     #endregion

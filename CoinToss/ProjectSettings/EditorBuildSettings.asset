@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Steve/Scenes/End_S.unity
     guid: 6793039a6cbc03a40a098ae97a92dc53
+  - enabled: 1
+    path: Assets/JoJo/ToolBoxTest.unity
+    guid: 3eeae7538e50da94c97793e3b7c91466
   m_configObjects: {}

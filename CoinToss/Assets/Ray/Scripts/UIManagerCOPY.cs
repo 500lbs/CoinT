@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class UIManagerCOPY : MonoBehaviour
 {
-    public UIManagerS ToolBoxRef;
+    
+    public SingletonStats ToolBoxRef;
     public TMPro.TMP_Text Player1Wins;
     public TMPro.TMP_Text Player1White;
     public TMPro.TMP_Text Player1Black;
@@ -57,9 +58,9 @@ public class UIManagerCOPY : MonoBehaviour
         }
     }
 
-    public void RestartGame()
+    /*public void RestartGame()
     {
         ToolBoxRef.Restart();
-    }
+    }*/
 
 }

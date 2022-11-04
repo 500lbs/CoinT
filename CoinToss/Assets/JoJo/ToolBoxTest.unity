@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 673278460450796327, guid: a7749199c3e6d684ab700c2fb2e292e2, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 673278460450796327, guid: a7749199c3e6d684ab700c2fb2e292e2, type: 3}
       propertyPath: m_LocalScale.x
@@ -223,17 +223,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animCoin: {fileID: 6276067}
-  player1Wins: 0
-  player1Black: 0
-  player1White: 0
-  player2Wins: 0
-  player2Black: 0
-  player2White: 0
-  playerTurn: -1
-  coinChoise: 0
-  coinResult: 0
-  canFlip: 1
-  TotalFlipped: 0
 --- !u!4 &158178347
 Transform:
   m_ObjectHideFlags: 0
@@ -286,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3940127852039317226, guid: 037eb25de64594f85a823429e3be6639, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3940127852039317226, guid: 037eb25de64594f85a823429e3be6639, type: 3}
       propertyPath: m_AnchorMax.x
@@ -446,7 +435,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &881948629
 GameObject:
@@ -755,8 +744,63 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1185951865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1185951866}
+  - component: {fileID: 1185951867}
+  m_Layer: 0
+  m_Name: Singleton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1185951866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185951865}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.721952, y: -3.8228178, z: 1.6814833}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1185951867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185951865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5128fa4c91e474d8248adb2058b101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1Wins: 0
+  player1Black: 0
+  player1White: 0
+  player2Wins: 0
+  player2Black: 0
+  player2White: 0
+  playerTurn: -1
+  coinChoise: -1
+  coinResult: 0
+  TotalFlipped: 0
+  canFlip: 1
 --- !u!1 &1423998155
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +865,7 @@ Transform:
   - {fileID: 1883703456}
   - {fileID: 896215907}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1601826542
 GameObject:
@@ -1211,5 +1255,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

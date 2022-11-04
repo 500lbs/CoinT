@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
     #region Stats
     void Player1Guess()
     {
-        _player1Wins.text = $"{ToolBoxRef.player1Wins}";
+        _player1Wins.text = $"{SingletonStats.SingletonRef.player1Wins}";
     }
 
     void Player2Guess()

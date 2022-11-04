@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Toolbox : MonoBehaviour
 {
-    public UIManagerS UIManagerRef;
+ 
 
     public Animator animCoin;
 
@@ -21,34 +21,34 @@ public class Toolbox : MonoBehaviour
     void Update()
     {
         randomNumber = Random.Range(-10f, 10f);
-        if (Input.GetKeyDown(KeyCode.Space) && UIManagerRef.canFlip == true)
+        if (Input.GetKeyDown(KeyCode.Space) && SingletonStats.SingletonRef.canFlip == true)
         {
             FlipCoin();
         }
 
-        if (UIManagerRef.playerTurn == -1 && Input.GetKeyUp(KeyCode.E) && UIManagerRef.canFlip == true)
+        if (SingletonStats.SingletonRef.playerTurn == -1 && Input.GetKeyUp(KeyCode.E) && SingletonStats.SingletonRef.canFlip == true)
         {
-            UIManagerRef.canFlip = false;
+            SingletonStats.SingletonRef.canFlip = false;
             Invoke("BlackSide", 0.05f);
             animCoin.SetBool("ChangeToBlack", true);
         }
 
-        else if (UIManagerRef.playerTurn == -1 && Input.GetKeyUp(KeyCode.Q) && UIManagerRef.canFlip == true)
+        else if (SingletonStats.SingletonRef.playerTurn == -1 && Input.GetKeyUp(KeyCode.Q) && SingletonStats.SingletonRef.canFlip == true)
         {
-            UIManagerRef.canFlip = false;
+            SingletonStats.SingletonRef.canFlip = false;
             Invoke("WhiteSide", 0.05f);
             animCoin.SetBool("ChangeToWhite", true);
         }
 
-        if (UIManagerRef.playerTurn == 1 && Input.GetKeyUp(KeyCode.U) && UIManagerRef.canFlip == true)
+        if (SingletonStats.SingletonRef.playerTurn == 1 && Input.GetKeyUp(KeyCode.U) && SingletonStats.SingletonRef.canFlip == true)
         {
-            UIManagerRef.canFlip = false;
+            SingletonStats.SingletonRef.canFlip = false;
             Invoke("WhiteSide", 0.05f);
             animCoin.SetBool("ChangeToWhite", true);
         }
-        else if (UIManagerRef.playerTurn == 1 && Input.GetKeyUp(KeyCode.O) && UIManagerRef.canFlip == true)
+        else if (SingletonStats.SingletonRef.playerTurn == 1 && Input.GetKeyUp(KeyCode.O) && SingletonStats.SingletonRef.canFlip == true)
         {
-            UIManagerRef.canFlip = false;
+            SingletonStats.SingletonRef.canFlip = false;
             Invoke("BlackSide", 0.05f);
             animCoin.SetBool("ChangeToBlack", true);
         }
@@ -57,77 +57,77 @@ public class Toolbox : MonoBehaviour
 
     public void BlackSide()
     {
-        UIManagerRef.canFlip = true;
-        UIManagerRef.coinChoise = -1;
+        SingletonStats.SingletonRef.canFlip = true;
+        SingletonStats.SingletonRef.coinChoise = -1;
         animCoin.SetBool("ChangeToBlack", false);
     }
 
     public void WhiteSide()
     {
-        UIManagerRef.canFlip = true;
-        UIManagerRef.coinChoise = 1;
+        SingletonStats.SingletonRef.canFlip = true;
+        SingletonStats.SingletonRef.coinChoise = 1;
         animCoin.SetBool("ChangeToWhite", false);
     }
 
     void CollectPoint1()
     {
-        UIManagerRef.player1Wins++;
-        if (UIManagerRef.coinResult == -1)
+        SingletonStats.SingletonRef.player1Wins++;
+        if (SingletonStats.SingletonRef.coinResult == -1)
         {
-            UIManagerRef.player1Black++;
+            SingletonStats.SingletonRef.player1Black++;
         }
-        else if (UIManagerRef.coinResult == 1)
+        else if (SingletonStats.SingletonRef.coinResult == 1)
         {
-            UIManagerRef.player1White++;
+            SingletonStats.SingletonRef.player1White++;
         }
     }
 
     void CollectPoint2()
     {
-        UIManagerRef.player2Wins++;
-        if (UIManagerRef.coinResult == -1)
+        SingletonStats.SingletonRef.player2Wins++;
+        if (SingletonStats.SingletonRef.coinResult == -1)
         {
-            UIManagerRef.player2Black++;
+            SingletonStats.SingletonRef.player2Black++;
         }
-        else if (UIManagerRef.coinResult == 1)
+        else if (SingletonStats.SingletonRef.coinResult == 1)
         {
-            UIManagerRef.player2White++;
+            SingletonStats.SingletonRef.player2White++;
         }
     }
 
     void FlipCoin()
     {
-        UIManagerRef.canFlip = false;
+        SingletonStats.SingletonRef.canFlip = false;
         if (randomNumber > 0)
         {
             animCoin.SetBool("FlipBlack", true);
-            UIManagerRef.coinResult = -1;
+            SingletonStats.SingletonRef.coinResult = -1;
         }
         else if (randomNumber <= 0)
         {
             animCoin.SetBool("FlipWhite", true);
-            UIManagerRef.coinResult = 1;
+            SingletonStats.SingletonRef.coinResult = 1;
         }
-        if (UIManagerRef.coinChoise == UIManagerRef.coinResult)
+        if (SingletonStats.SingletonRef.coinChoise == SingletonStats.SingletonRef.coinResult)
         {
-            if (UIManagerRef.playerTurn == -1)
+            if (SingletonStats.SingletonRef.playerTurn == -1)
             {
                 CollectPoint1();
             }
-            else if (UIManagerRef.playerTurn == 1)
+            else if (SingletonStats.SingletonRef.playerTurn == 1)
             {
                 CollectPoint2();
             }
         }
-        UIManagerRef.TotalFlipped++;
+        SingletonStats.SingletonRef.TotalFlipped++;
         Invoke("EndTurn", 1.3f);
     }
 
     void EndTurn()
     {
-        UIManagerRef.playerTurn = -UIManagerRef.playerTurn;
+        SingletonStats.SingletonRef.playerTurn = -SingletonStats.SingletonRef.playerTurn;
         animCoin.SetBool("FlipWhite", false);
         animCoin.SetBool("FlipBlack", false);
-        UIManagerRef.canFlip = true;
+        SingletonStats.SingletonRef.canFlip = true;
     }
 }
