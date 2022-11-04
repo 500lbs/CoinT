@@ -6,12 +6,36 @@ public class Toolbox : MonoBehaviour
 {
     public Animator animCoin;
     private float randomNumber;
+    public float time = 3f;
+    public float timer;
+    string currentState = "none";
+
+    void Start()
+    {
+        timer = Time.time;
+    }
 
     void Update()
     {
+        KeyDelay();
         ChooseFlip();
     }
-
+    void KeyDelay()
+    {
+        timer += Time.deltaTime;
+        if (timer >= time)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SingletonStats.SingletonRef.canFlip = true;
+                timer = 0;
+            }
+        }
+        else
+        {
+            SingletonStats.SingletonRef.canFlip = false;
+        }
+    }
     public void ChooseFlip()
     {
         randomNumber = Random.Range(-10f, 10f);
@@ -89,7 +113,7 @@ public class Toolbox : MonoBehaviour
 
     void AnimateCoin()
     {
-        SingletonStats.SingletonRef.canFlip = false;
+        //SingletonStats.SingletonRef.canFlip = false;
         if (randomNumber > 0)
         {
             animCoin.SetBool("FlipBlack", true);
@@ -113,11 +137,12 @@ public class Toolbox : MonoBehaviour
             }
         }
         SingletonStats.SingletonRef.TotalFlipped++;
-        Invoke("EndTurn", 1.3f);
+        StartCoroutine(EndTurn());
     }
 
-    void EndTurn()
+    IEnumerator EndTurn()
     {
+        yield return new WaitForSeconds(0.5f);
         SingletonStats.SingletonRef.playerTurn = -SingletonStats.SingletonRef.playerTurn;
         animCoin.SetBool("FlipWhite", false);
         animCoin.SetBool("FlipBlack", false);
