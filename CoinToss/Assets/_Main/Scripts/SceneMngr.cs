@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneMngr : MonoBehaviour
 {
-    #region SceneTransitions
     public void LoadStart()
     {
         SceneManager.LoadScene("Start_Nov4", LoadSceneMode.Single);
@@ -18,12 +17,8 @@ public class SceneMngr : MonoBehaviour
     {
         SceneManager.LoadScene("End_Nov4", LoadSceneMode.Single);
     }
-    #endregion
-
-    #region Etc.
     public void ExitGame()
     {
         Application.Quit();
     }
-    #endregion
 }

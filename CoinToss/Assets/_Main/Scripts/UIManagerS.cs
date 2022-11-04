@@ -7,11 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class UIManagerS : MonoBehaviour
 {
-    #region Variables
-
-    [Header("References")]
-    public static UIManagerS UIManagerRef;
-
     [Header("Status / Main Screen")]
     public GameObject Player2TurnStatus;
     public GameObject Player1TurnStatus;
@@ -25,26 +20,18 @@ public class UIManagerS : MonoBehaviour
     public TextMeshProUGUI Player2WhiteText;
     public TextMeshProUGUI TotalTimesFlippedText;
 
-    [Header("Game Flow")]
-    public bool MainSwitch;
-    public GameObject MainObject;
+    [Header("Switches")]
     public bool StatsSwitch = false;
     public GameObject StatsObject;
     public bool GamePlaySwitch = true;
     public GameObject GamePlayObject;
-    public bool GameOverSwitch;
-    public GameObject GameOverObject;
 
-    #endregion
-    #region Basic Functions
     void Update()
     {
         UpdateStats();
         ToggleOverlayStats();
     }
 
-    #endregion
-    #region Stats Functions
     void UpdateStats()
     {
         //Player 1 Stats Update
@@ -69,8 +56,6 @@ public class UIManagerS : MonoBehaviour
         TotalTimesFlippedText.text = $"{SingletonStats.SingletonRef.TotalFlipped}";
     }
 
-    #endregion
-    #region Game State Functions
     public void ToggleOverlayStats()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -91,19 +76,7 @@ public class UIManagerS : MonoBehaviour
             GamePlayObject.SetActive(true);
         }
     }
-    public void Restart()
-    {
-        SingletonStats.SingletonRef.playerTurn = -1;
-        SingletonStats.SingletonRef.coinChoise = -1;
-        SingletonStats.SingletonRef.canFlip = true;
-        SingletonStats.SingletonRef.TotalFlipped = 0;
-        SingletonStats.SingletonRef.player1Wins = 0;
-        SingletonStats.SingletonRef.player1White = 0;
-        SingletonStats.SingletonRef.player1Black = 0;
-        SingletonStats.SingletonRef.player2Wins = 0;
-        SingletonStats.SingletonRef.player2White = 0;
-        SingletonStats.SingletonRef.player2Black = 0;
-    }
+
     public void StatsButton()
     {
         StatsSwitch = !StatsSwitch;
@@ -122,5 +95,4 @@ public class UIManagerS : MonoBehaviour
         SingletonStats.SingletonRef.player2White = 0;
         SingletonStats.SingletonRef.player2Black = 0;
     }
-    #endregion
 }

@@ -4,26 +4,20 @@ using UnityEngine;
 
 public class Toolbox : MonoBehaviour
 {
- 
-
     public Animator animCoin;
-
     private float randomNumber;
 
-    // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-
+        ChooseFlip();
     }
 
-
-    // Update is called once per frame
-    void Update()
+    public void ChooseFlip()
     {
         randomNumber = Random.Range(-10f, 10f);
         if (Input.GetKeyDown(KeyCode.Space) && SingletonStats.SingletonRef.canFlip == true)
         {
-            FlipCoin();
+            AnimateCoin();
         }
 
         if (SingletonStats.SingletonRef.playerTurn == -1 && Input.GetKeyUp(KeyCode.E) && SingletonStats.SingletonRef.canFlip == true)
@@ -52,7 +46,7 @@ public class Toolbox : MonoBehaviour
             Invoke("BlackSide", 0.05f);
             animCoin.SetBool("ChangeToBlack", true);
         }
-        //ChooseTurn();
+
     }
 
     public void BlackSide()
@@ -61,7 +55,6 @@ public class Toolbox : MonoBehaviour
         SingletonStats.SingletonRef.coinChoise = -1;
         animCoin.SetBool("ChangeToBlack", false);
     }
-
     public void WhiteSide()
     {
         SingletonStats.SingletonRef.canFlip = true;
@@ -81,7 +74,6 @@ public class Toolbox : MonoBehaviour
             SingletonStats.SingletonRef.player1White++;
         }
     }
-
     void CollectPoint2()
     {
         SingletonStats.SingletonRef.player2Wins++;
@@ -95,7 +87,7 @@ public class Toolbox : MonoBehaviour
         }
     }
 
-    void FlipCoin()
+    void AnimateCoin()
     {
         SingletonStats.SingletonRef.canFlip = false;
         if (randomNumber > 0)
@@ -108,6 +100,7 @@ public class Toolbox : MonoBehaviour
             animCoin.SetBool("FlipWhite", true);
             SingletonStats.SingletonRef.coinResult = 1;
         }
+
         if (SingletonStats.SingletonRef.coinChoise == SingletonStats.SingletonRef.coinResult)
         {
             if (SingletonStats.SingletonRef.playerTurn == -1)
