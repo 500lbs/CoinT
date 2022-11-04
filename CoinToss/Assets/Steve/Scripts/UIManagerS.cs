@@ -75,11 +75,13 @@ public class UIManagerS : MonoBehaviour
         }
         if (StatsSwitch)
         {
+            ToolBoxRef.canFlip = false;
             StatsObject.SetActive(true);
             GamePlayObject.SetActive(false);
         }
         else
         {
+            ToolBoxRef.canFlip = true;
             StatsObject.SetActive(false);
             GamePlayObject.SetActive(true);
         }
