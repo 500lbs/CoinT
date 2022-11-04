@@ -14,6 +14,10 @@ public class SceneMngr : MonoBehaviour
     {
         SceneManager.LoadScene("Start_S", LoadSceneMode.Single);
     }
+    public void LoadEnd()
+    {
+        SceneManager.LoadScene("End_S", LoadSceneMode.Single);
+    }
 
     public void ExitGame()
     {

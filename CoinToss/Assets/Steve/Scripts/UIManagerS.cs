@@ -7,14 +7,30 @@ using UnityEngine.UI;
 public class UIManagerS : MonoBehaviour
 {
     #region Variables
+
     [Header("References")]
-    public Toolbox ToolBoxRef;
 
     [Header("Status / Main Screen")]
     public GameObject Player2TurnStatus;
     public GameObject Player1TurnStatus;
 
-    [Header("Stats / Pause Screen")]
+    [Header("Stats / Pause Screen")] 
+    
+    public int player1Wins;
+    public int player1Black;
+    public int player1White;
+
+    public int player2Wins;
+    public int player2Black;
+    public int player2White;
+    //-1 means player one / black & 1 means player two / white
+    public int playerTurn = -1;
+    public int coinChoise = -1;
+    public int coinResult;
+    public int TotalFlipped = 0;
+
+    public bool canFlip = true;
+
     public TextMeshProUGUI Player1WinsText;
     public TextMeshProUGUI Player1BlackText;
     public TextMeshProUGUI Player1WhiteText;
@@ -42,25 +58,25 @@ public class UIManagerS : MonoBehaviour
     void UpdateStats()
     {
         //Player 1 Stats Update
-        Player1WinsText.text = $"{ToolBoxRef.player1Wins}";
-        Player1BlackText.text = $"{ToolBoxRef.player1Black}";
-        Player1WhiteText.text = $"{ToolBoxRef.player1White}";
-        if (ToolBoxRef.playerTurn == -1)
+        Player1WinsText.text = $"{player1Wins}";
+        Player1BlackText.text = $"{player1Black}";
+        Player1WhiteText.text = $"{player1White}";
+        if (playerTurn == -1)
         {
             Player1TurnStatus.SetActive(true);
             Player2TurnStatus.SetActive(false);
         }
         //Player 2 Stats Update
-        Player2WinsText.text = $"{ToolBoxRef.player2Wins}";
-        Player2BlackText.text = $"{ToolBoxRef.player2Black}";
-        Player2WhiteText.text = $"{ToolBoxRef.player2White}";
-        if (ToolBoxRef.playerTurn != -1)
+        Player2WinsText.text = $"{player2Wins}";
+        Player2BlackText.text = $"{player2Black}";
+        Player2WhiteText.text = $"{player2White}";
+        if (playerTurn != -1)
         {
             Player1TurnStatus.SetActive(false);
             Player2TurnStatus.SetActive(true);
         }
 
-        TotalTimesFlippedText.text = $"{ToolBoxRef.TotalFlipped}";
+        TotalTimesFlippedText.text = $"{TotalFlipped}";
     }
 
     #endregion
@@ -75,18 +91,30 @@ public class UIManagerS : MonoBehaviour
         }
         if (StatsSwitch)
         {
-            ToolBoxRef.canFlip = false;
+            canFlip = false;
             StatsObject.SetActive(true);
             GamePlayObject.SetActive(false);
         }
         else
         {
-            ToolBoxRef.canFlip = true;
+            canFlip = true;
             StatsObject.SetActive(false);
             GamePlayObject.SetActive(true);
         }
     }
-
+    public void Restart()
+    {
+        playerTurn = -1;
+        coinChoise = -1;
+        canFlip = true;
+        TotalFlipped = 0;
+        player1Wins = 0;
+        player1White = 0;
+        player1Black = 0;
+        player2Wins = 0;
+        player2White = 0;
+        player2Black = 0;
+    }
     public void StatsButton()
     {
         StatsSwitch = !StatsSwitch;
@@ -94,17 +122,18 @@ public class UIManagerS : MonoBehaviour
 
     public void ClearStats()
     {
-        ToolBoxRef.playerTurn = -1;
-        ToolBoxRef.coinChoise = -1;
-        ToolBoxRef.canFlip = true;
-        ToolBoxRef.TotalFlipped = 0;
-        ToolBoxRef.player1Wins = 0;
-        ToolBoxRef.player1White = 0;
-        ToolBoxRef.player1Black = 0;
-        ToolBoxRef.player2Wins = 0;
-        ToolBoxRef.player2White = 0;
-        ToolBoxRef.player2Black = 0;
+        playerTurn = -1;
+        coinChoise = -1;
+        canFlip = true;
+        TotalFlipped = 0;
+        player1Wins = 0;
+        player1White = 0;
+        player1Black = 0;
+        player2Wins = 0;
+        player2White = 0;
+        player2Black = 0;
     }
+
     #endregion
 
 }

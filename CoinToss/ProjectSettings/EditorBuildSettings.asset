@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Steve/Scenes/Start_S.unity
-    guid: 19954d76a80a34e36b91703ec6d7603e
-  - enabled: 1
     path: Assets/Steve/Scenes/Main_S.unity
     guid: 93c7eacdf191a46adacf62ac49a917e9
   - enabled: 1
+    path: Assets/Steve/Scenes/Start_S.unity
+    guid: a0d9fb254b76546fe8e1f538c2eac582
+  - enabled: 1
     path: Assets/Steve/Scenes/End_S.unity
-    guid: e8b2853392b08400c83e3b45a5d7d4d5
+    guid: 6793039a6cbc03a40a098ae97a92dc53
   m_configObjects: {}

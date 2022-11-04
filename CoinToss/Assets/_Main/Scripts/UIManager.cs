@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _player2White;
 
     [Header("References")]
-    public Toolbox ToolBoxRef;
+    public UIManagerS ToolBoxRef;
 
     #region Basic Functions
     void Update()
