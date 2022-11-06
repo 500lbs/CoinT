@@ -8,7 +8,6 @@ public class Toolbox : MonoBehaviour
     private float randomNumber;
     public float time = 3f;
     public float timer;
-    string currentState = "none";
 
     void Start()
     {
